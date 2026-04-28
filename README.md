@@ -41,3 +41,43 @@ http://127.0.0.1:5000/
 * Flask app setup completed
 * Basic route working
 * Folder structure created
+
+
+
+## 🚀 Day 2 – Prompt Engineering
+
+### 📌 Task Completed
+- Designed primary prompt template for vendor risk analysis
+- Implemented structured input format using placeholders
+- Defined strict JSON output format
+
+### 🧪 Testing
+- Tested prompt with 5 real-world vendor inputs
+- Verified outputs for:
+  - Risk level classification (Low / Medium / High)
+  - Logical reasoning
+  - Meaningful recommendations
+
+### ⚙️ Improvements Made
+- Added strict rule-based logic for consistency:
+  - No compliance → High risk
+  - Fraud/Data leak → High risk
+  - Strong compliance (ISO/SOC2/HIPAA) + no incidents → Low risk
+  - Compliance + incidents → Medium risk
+- Introduced rule priority (incidents override compliance)
+- Ensured deterministic output (temperature = 0)
+
+### ✅ Final Outcome
+- All 5 test cases produce consistent and logical results
+- Output strictly follows JSON format
+- Prompt behavior is stable and predictable
+
+### 📁 Files Created
+- `prompts/vendor_prompt.txt`
+- `services/prompt_loader.py`
+- `test_prompt.py`
+
+
+
+
+
