@@ -5,6 +5,7 @@ import com.internship.tool.service.ScorecardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class ScorecardController {
         return ResponseEntity.ok(scorecardService.getScorecardsByVendor(vendorId));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/vendor/{vendorId}")
     public ResponseEntity<Scorecard> createScorecard(
             @PathVariable Long vendorId,
@@ -39,6 +41,7 @@ public class ScorecardController {
         return new ResponseEntity<>(createdScorecard, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Scorecard> updateScorecard(
             @PathVariable Long id,
@@ -46,6 +49,7 @@ public class ScorecardController {
         return ResponseEntity.ok(scorecardService.updateScorecard(id, scorecard));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteScorecard(@PathVariable Long id) {
         scorecardService.deleteScorecard(id);

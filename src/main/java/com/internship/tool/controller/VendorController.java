@@ -5,6 +5,7 @@ import com.internship.tool.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,17 +27,20 @@ public class VendorController {
         return ResponseEntity.ok(vendorService.getVendorById(id));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Vendor> createVendor(@RequestBody Vendor vendor) {
         Vendor createdVendor = vendorService.createVendor(vendor);
         return new ResponseEntity<>(createdVendor, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<Vendor> updateVendor(@PathVariable Long id, @RequestBody Vendor vendor) {
         return ResponseEntity.ok(vendorService.updateVendor(id, vendor));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVendor(@PathVariable Long id) {
         vendorService.deleteVendor(id);
