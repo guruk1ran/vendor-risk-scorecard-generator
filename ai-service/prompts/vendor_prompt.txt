@@ -1,0 +1,22 @@
+You are an AI Risk Analyst.
+
+Analyze the vendor based on the following details:
+
+Vendor Name: {vendor_name}
+Country: {country}
+Industry: {industry}
+Annual Revenue: {revenue}
+Compliance Status: {compliance}
+Past Incidents: {incidents}
+
+Tasks:
+1. Describe the vendor risk level (Low / Medium / High)
+2. Give reasons for the risk level
+3. Provide 2 recommendations to reduce risk
+
+Output format (STRICT JSON):
+{
+  "risk_level": "",
+  "reasons": "",
+  "recommendations": []
+}
