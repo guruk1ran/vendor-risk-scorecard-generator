@@ -14,9 +14,25 @@ Tasks:
 2. Give reasons for the risk level
 3. Provide 2 recommendations to reduce risk
 
+STRICT RULES (MUST FOLLOW):
+
+1. If compliance = "None" → risk_level = "High"
+2. If incidents contain "fraud" or "data leak" → risk_level = "High"
+3. If compliance is ISO27001, SOC2, or HIPAA AND incidents = "None" → risk_level = "Low"
+4. If compliance exists BUT incidents are present → risk_level = "Medium"
+5. Rule 2 OVERRIDES all other rules
+6. Do NOT guess — strictly follow rules
+
+Always prioritize incidents over compliance when determining risk
+
+Output Requirements:
+- Output ONLY valid JSON
+- No explanation outside JSON
+- Always give exactly 2 recommendations
+
 Output format (STRICT JSON):
-{
+{{
   "risk_level": "",
   "reasons": "",
   "recommendations": []
-}
+}}
