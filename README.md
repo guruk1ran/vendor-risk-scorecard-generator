@@ -1,83 +1,54 @@
 # Vendor Risk Scorecard Generator
 
-📌 Project Overview
-This project is an AI-powered system to generate vendor risk scorecards.
-It evaluates vendor data and provides risk insights using AI services.
+# 🚀 Vendor Risk Scorecard Generator (Backend)
 
-## Tech Stack
-* Python (Flask)
-* AI Integration (Groq API - upcoming)
-* REST APIs
+## 📌 Overview
+This project contains the backend implementation of the **Vendor Risk Scorecard Generator** built using Spring Boot. It provides secure REST APIs for managing authentication, vendors, and scorecards with database integration and caching support.
 
-## 📁 Folder Structure
+---
 
-ai-service/
-  ├── routes/        # API routes
-  ├── services/      # Business logic
-  ├── prompts/       # AI prompt templates
-  ├── app.py         # Main Flask app
-  ├── requirements.txt
-  ├── Dockerfile
-```
+## ✅ Features Implemented
 
-## 🚀 Setup Instructions
+- Spring Boot project setup with a proper folder structure  
+- REST APIs for:
+  - Authentication
+  - Vendor management
+  - Scorecard operations  
+- JWT-based authentication and authorization  
+- PostgreSQL and Redis integration using Docker  
+- Flyway for database migration  
+- Data seeder for demo users, vendors, and scorecards  
+- Layered architecture:
+  - Controller
+  - Service
+  - Repository  
+- Global exception handling  
 
-1. Clone the repository:
+---
 
-git clone <repo-url>
-cd vendor-risk-scorecard-generator/ai-service
+## 🔐 Security
 
-2. Install dependencies:
-pip install -r requirements.txt
+- JWT-based authentication  
+- Role-based access control using `@PreAuthorize`  
+- Method-level security enabled using `@EnableMethodSecurity`  
+- Secured APIs require Bearer Token  
 
-3. Run the application:
-python app.py
+---
 
-4. Open browser:
-http://127.0.0.1:5000/
+## ⚡ Caching
 
-## ✅ Current Status (Day 1)
+- Redis caching implemented using:
+  - `@Cacheable` for GET APIs  
+  - `@CacheEvict` for POST/PUT/DELETE APIs  
 
-* Flask app setup completed
-* Basic route working
-* Folder structure created
+---
 
+## 🧪 Testing
 
-
-## 🚀 Day 2 – Prompt Engineering
-
-### 📌 Task Completed
-- Designed primary prompt template for vendor risk analysis
-- Implemented structured input format using placeholders
-- Defined strict JSON output format
-
-### 🧪 Testing
-- Tested prompt with 5 real-world vendor inputs
-- Verified outputs for:
-  - Risk level classification (Low / Medium / High)
-  - Logical reasoning
-  - Meaningful recommendations
-
-### ⚙️ Improvements Made
-- Added strict rule-based logic for consistency:
-  - No compliance → High risk
-  - Fraud/Data leak → High risk
-  - Strong compliance (ISO/SOC2/HIPAA) + no incidents → Low risk
-  - Compliance + incidents → Medium risk
-- Introduced rule priority (incidents override compliance)
-- Ensured deterministic output (temperature = 0)
-
-### ✅ Final Outcome
-- All 5 test cases produce consistent and logical results
-- Output strictly follows JSON format
-- Prompt behavior is stable and predictable
-
-### 📁 Files Created
-- `prompts/vendor_prompt.txt`
-- `services/prompt_loader.py`
-- `test_prompt.py`
-
-
-
-
-
+- Unit and controller test cases implemented  
+- Testing frameworks used:
+  - `@WebMvcTest`
+  - Mockito  
+- Test execution:
+```bash
+mvn test
