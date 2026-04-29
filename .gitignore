@@ -3,3 +3,5 @@ node_modules/
 target/
 __pycache__/
 dist/
+__pycache__/
+*.pyc
