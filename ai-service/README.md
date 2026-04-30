@@ -79,3 +79,70 @@ Tested using Postman:
 http://127.0.0.1:5000/ai/describe
 
 
+
+# 🚀 Day 4 – AI Recommendation API
+
+This module implements an AI-powered recommendation service for vendor risk analysis.
+It exposes a REST API that generates **structured recommendations** based on vendor name and risk score.
+
+## ⚙️ Tech Stack
+
+* Python (Flask)
+* Groq API (LLM)
+* Postman (Testing)
+
+## 🔗 API Endpoint
+
+### POST `/ai/recommend`
+
+#### Request Body
+
+```json
+{
+  "vendor": "Infosys",
+  "risk_score": "High"
+}
+
+#### Response
+
+json
+[
+  {
+    "action_type": "Review vendor credentials",
+    "description": "Verify vendor identity and compliance",
+    "priority": "High"
+  },
+  {
+    "action_type": "Conduct security audit",
+    "description": "Assess vendor security controls",
+    "priority": "High"
+  },
+  {
+    "action_type": "Establish communication",
+    "description": "Ensure proper issue resolution channels",
+    "priority": "Medium"
+  }
+]
+
+## 🧪 Testing (Postman)
+
+* Method: `POST`
+* URL: `http://127.0.0.1:5000/ai/recommend`
+* Body: JSON (as shown above)
+
+## ⚠️ Error Handling
+
+* Returns error if input is missing
+* Handles invalid JSON from AI
+* Provides fallback response if parsing fails
+
+## ✅ Status
+
+✔ API implemented
+✔ AI integrated
+✔ JSON output validated
+✔ Tested successfully
+
+
+
+
