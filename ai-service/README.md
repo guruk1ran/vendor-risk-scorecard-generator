@@ -222,6 +222,40 @@ The system combines **risk analysis (Day 3)** and **recommendations (Day 4)** in
 * ✔ Tested using Postman
 
 
+###  Day 6 – AI Report Generation
+
+Implemented an AI-powered API to generate a structured Vendor Risk Report using LLM.
+The API combines risk analysis and recommendations into a clean JSON response.
+
+Create an endpoint that returns:
+- Title
+- Summary
+- Overview
+- Key Risk Items
+- Recommendations
+
+🔗 Endpoint
+POST /ai/generate-report
+
+📥 Request
+{
+  "vendor": "Infosys",
+  "risk_score": "High"
+}
+
+📤 Response
+{
+  "title": "Vendor Risk Report: Infosys",
+  "summary": "...",
+  "overview": "...",
+  "key_items": [...],
+  "recommendations": [...],
+  "generated_at": "timestamp"
+}
+
+✅ Status
+✔ Day 6 Completed
+✔ API working correctly
 
 
 
