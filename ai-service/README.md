@@ -258,5 +258,28 @@ POST /ai/generate-report
 ✔ API working correctly
 
 
+📅 Day 7 – Redis AI Caching & Health Monitoring
+
+Implemented Redis-based caching to optimize AI response time and reduce repeated API calls. Added health monitoring endpoint to track system status and performance.
+
+⚙️ Workflow
+
+User Request
+   ↓
+Generate SHA256 Key
+   ↓
+Check Redis Cache
+   ↓
+If HIT → Return Cached Response
+Else → Call AI → Store in Redis (TTL 15 min) → Return Response
+
+📌 Output Example
+First request → CALLING AI
+Repeated request → CACHE HIT
+After TTL → CALLING AI
+
+✅ Status
+✔ Day 7 Completed
+✔ API working correctly
 
 
