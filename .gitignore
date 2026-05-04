@@ -1,3 +1,14 @@
+# Java
 target/
 *.class
 *.log
+
+# Python/Ai-service
+__pycache__/
+*.pyc
+
+# Environment variables (VERY IMPORTANT)
+.env
+
+# VS Code
+.vscode/
