@@ -283,3 +283,33 @@ After TTL → CALLING AI
 ✔ API working correctly
 
 
+🔐 Day 8 – Security Fixes (ZAP)
+
+Implemented security improvements by fixing OWASP ZAP findings. Added secure HTTP headers, input validation, and safe error handling to eliminate vulnerabilities.
+
+⚙️ Changes Made
+Added security headers using Flask-Talisman
+Implemented additional headers:
+X-Content-Type-Options
+X-Frame-Options (DENY)
+X-XSS-Protection
+Strict-Transport-Security
+Content-Security-Policy
+Input sanitization for API requests
+Limited request size (1MB)
+Improved error handling (no sensitive data exposure)
+
+🔄 Workflow
+Receive API request
+Validate & sanitize input
+Apply security headers
+Process request
+Return secure JSON response
+
+✅ Status
+✔ ZAP vulnerabilities fixed
+✔ Zero Critical/High issues
+✔ API secure and working
+day 8 completed
+
+
