@@ -335,3 +335,105 @@ Optimized AI service performance to ensure all endpoints respond within 2 second
 DAY 9 COMPLETED
 
 
+# 🚀 Day 10 – AI Service Documentation
+
+## 📌 Setup Instructions
+
+```bash
+pip install -r requirements.txt
+
+🔐 Environment Variables
+Create .env file:
+GROQ_API_KEY=your_api_key
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+▶️ Run Application
+Start Redis:
+redis-server
+
+Run Flask:
+python app.py
+
+📡 API Reference
+
+1️⃣ Health Check
+
+Endpoint:/ai/health
+Method:GET
+
+Request: 
+GET http://127.0.0.1:5000/ai/health
+
+Response:
+{ "status": "ok" }
+
+2️⃣ Generate Report
+
+Endpoint:/ai/generate-report
+Method:POST
+
+Request:
+POST http://127.0.0.1:5000/ai/generate-report
+{
+  "vendor": "Infosys",
+  "risk_score": "High"
+}
+
+Response:
+{
+  "title": "Vendor Risk Report",
+  "summary": "High risk vendor",
+  "overview": "...",
+  "key_items": [
+    {
+      "risk_category": "Data Security",
+      "risk_description": "...",
+      "risk_impact": "High",
+      "mitigation_status": "In Progress"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "High",
+      "recommendation": "...",
+      "risk_category": "Security"
+    }
+  ],
+  "response_time": 0.8,
+  "is_fallback": false
+}
+
+3️⃣ Recommend API
+
+Endpoint:/ai/recommend
+Method:POST
+
+Request:
+POST http://127.0.0.1:5000/ai/recommend
+{
+  "title": "Vendor Risk Report"
+}
+
+Response:
+[
+  {
+    "action_type": "Review",
+    "description": "Perform security audit",
+    "priority": "High"
+  }
+]
+
+⚡ Performance
+First call: ~1 sec (AI)
+Next call: ~0.1 sec (Redis cache)
+🔁 Fallback Handling
+AI failure → fallback response
+"is_fallback": true
+
+✅ Day 10 Status
+✔ Documentation added
+✔ API usage explained
+✔ Setup instructions included
+✔ Ready for developer usage
+DAY 10 COMPLETED
